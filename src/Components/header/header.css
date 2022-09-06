@@ -1,0 +1,8 @@
+
+a{
+    text-decoration: none !important;
+    color: rgb(224, 14, 172);
+}
+a.hover{
+    text-decoration: dotted !important;
+}

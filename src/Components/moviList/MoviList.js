@@ -17,11 +17,11 @@ const MovieList = () => {
     }, [type])
 
     const getData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/movie/${type ? type :"popular"}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
         .then(res => res.json())
         .then(data => setMovieList(data.results))
         //.then(data => console.log(data.results))
-        console.log(movieList ,'data')
+       // console.log(movieList ,'data')
     }
 
     return (
@@ -30,7 +30,7 @@ const MovieList = () => {
             <div className="list__cards">
                 {
                     movieList?.map(movie => (
-                        <Cards movie={movie} />
+                        <Cards movie={movie} key={movie.id}/>
                     ))
                 }
             </div>

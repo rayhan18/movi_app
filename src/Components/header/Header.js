@@ -16,8 +16,8 @@ import {NavLink} from 'react-router-dom'
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link><NavLink to="/movies/popular">Populer</NavLink></Nav.Link>
-            <Nav.Link> <NavLink to="/movies/up_coming">Upcomming</NavLink></Nav.Link>
-            <Nav.Link > <NavLink to="/movies/top_releted">Top reted</NavLink></Nav.Link>
+            <Nav.Link> <NavLink to="/movies/upcoming">Upcomming</NavLink></Nav.Link>
+            <Nav.Link > <NavLink to="/movies/top_rated">Top reted</NavLink></Nav.Link>
             <Nav.Link > <NavLink to="#">Pricing</NavLink></Nav.Link>
             
           </Nav>

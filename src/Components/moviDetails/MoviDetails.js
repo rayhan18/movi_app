@@ -1,27 +1,31 @@
 import React,{useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import '../moviDetails/movidetils.css'
+
  const MoviDetails = () => {
     const [currentMovieDetail, setMoviDetials] =useState()
       const {id}=useParams()
 
     useEffect(()=>{
+       
       getData()
         window.scrollTo(0,0)
+
     },[])
 
     const getData = () => {
+        // console.log(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`,'id')
+        
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
         .then(res => res.json())
-        //.then(data => console.log(data.results))
-        .then(data => setMoviDetials(data.results))
+        .then(data => setMoviDetials(data))
         
     }
   return (
     <div>
         <div className="movie">
             <div className="movie__intro">
-                <img className="movie__backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} alt=""/>
+                <img className="movie__backdrop" src={`https://image.tmdb.org/t/p/original${ currentMovieDetail ? currentMovieDetail.backdrop_path : "" }`} alt=""/>
             </div>
             <div className="movie__detail">
                 <div className="movie__detailLeft">
@@ -34,7 +38,7 @@ import '../moviDetails/movidetils.css'
                         <div className="movie__name">{currentMovieDetail ? currentMovieDetail.original_title : ""}</div>
                         <div className="movie__tagline">{currentMovieDetail ? currentMovieDetail.tagline : ""}</div>
                         <div className="movie__rating">
-                            {currentMovieDetail ? currentMovieDetail.vote_average: ""} <i class="fas fa-star" />
+                            {currentMovieDetail ? currentMovieDetail.vote_average: ""} <i className="fas fa-star" />
                             <span className="movie__voteCount">{currentMovieDetail ? "(" + currentMovieDetail.vote_count + ") votes" : ""}</span>
                         </div>  
                         <div className="movie__runtime">{currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}</div>
